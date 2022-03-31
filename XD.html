@@ -1,0 +1,166 @@
+  <li><input type="button"  value="Strona Główna" onClick="window.location.href='index.php'" >  </li> 
+    <li> <a href="galeria.php">Galeria</a></li>
+    <input type="button"  value="Galeria" onClick="window.location.href='galeria.php'" >
+
+    <li></li>
+    <input type="submit" id="lupa" value="&#x1F50D;">
+
+
+    <?php
+   define('DB_SERVER', 'localhost:3306');
+   define('DB_USERNAME', 'root');
+   define('DB_PASSWORD', '');
+   define('DB_DATABASE', 'strona');
+   $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+?>
+
+include("config.php");
+session_start();
+
+
+   
+  
+
+try{
+ if($_SERVER["REQUEST_METHOD"] == "POST") {
+   // username and password sent from form 
+   
+   $myusername = mysqli_real_escape_string($db,$_POST['username']);
+   $mypassword = mysqli_real_escape_string($db,$_POST['passwd']);  
+   
+   
+   $query="SELECT id FROM strona where konta.user = '$myusername' and konta.hsalo = '$mypassword'";
+   //$result = mysqli_query($db,$query);
+      if(mysqli_num_rows($arr) == 0)
+      $result = $db->query($query);
+      $row = $result->fetch_array(MYSQLI_ASSOC);
+      $active = $row['active'];
+   
+      $count = mysqli_num_rows($result);
+   
+if($count == 1) {
+      session_register("myusername");
+      $_SESSION['login_user'] = $myusername;
+      
+      header("location: zarzadanie.php");
+   }else {
+      $error = "Your Login Name or Password is invalid";
+   }
+
+
+}
+    
+   
+   
+   // If result matched $myusername and $mypassword, table row must be 1 row
+     
+   
+
+}catch(Exception $e) {
+   echo 'Caught exception: ',  $e->getMessage(), "\n";
+}
+
+
+
+<?php
+
+// Initialize the session
+session_start();
+    $_SESSION['loggedin']=false;
+ include("config.php") ;
+ //$link=mysqli_connect("localhost", "root","", "strona");
+ if (mysqli_connect_errno()) {
+    printf("Connect failed: %s\n", mysqli_connect_error());
+    exit();
+}
+
+
+$errorlog="System status: ". mysqli_stat($link);
+echo "<script>console.log('$errorlog')</script>";
+// Define variables and initialize with empty values
+$username = $password = "";
+$username_err = $password_err = $login_err = "";
+ 
+// Processing form data when form is submitted
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+   
+    // Check if username is empty
+    if(empty(trim($_POST["username"]))){
+        $username_err = "Please enter username.";
+    } else{
+        $username = trim($_POST["username"]);
+    }
+    
+    // Check if password is empty
+    if(empty(trim($_POST["password"]))){
+        $password_err = "Please enter your password.";
+    } else{
+        $password = trim($_POST["password"]);
+    }
+    
+    // Validate credentials
+    if(empty($username_err) && empty($password_err)){
+      echo "<script>console.log('wstepnywarunek')</script>";
+        // Prepare a select statement
+        $query = "SELECT id, username, haslo FROM konta WHERE konta.username = ".$username;
+        echo "<script>console.log('$query')</script>";
+        $result = mysqli_query($link , $query);
+        echo "<script>console.log('$result')</script>";
+       echo "<script>console.log('tu mialoyb byc polaczenia')</script>";
+       $row = mysqli_fetch_array  ($result);   
+       echo "<script>console.log('$row')</script>";
+       echo "<script>console.log('deklaracja rowa')</script>";
+       while($row = mysqli_fetch_array  ($result))
+       {
+           echo "<script>console.log('$row')</script>";
+           $username_c=$row['username'];
+           $password_c=$row['haslo'];
+        if($username_c==$username && $password_c==$password) {
+            $_SESSION['loggedin']=true;
+                 header("Location: zarzadznie.php");
+        }    
+
+       } 
+    }    
+    
+}   
+
+       
+        
+        
+
+?>
+
+<?php 
+        if(!empty($login_err)){
+            echo '<div class="alert alert-danger">' . $login_err . '</div>';
+        }        
+        ?>
+
+        <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>
+
+        <?php echo $username_err; ?>
+        <?php echo $password_err; ?>
+
+        <span class="invalid-feedback"></span>
+<span class="invalid-feedback"></span>
+
+
+
+
+
+
+
+
+<script>
+document.getElementById("zarz").style.hidden;
+
+</script>
+
+
+
+<label for="zdjecie">Wybierz zdjęcie do artykułu</label>
+<select>
+   
+
+</select>

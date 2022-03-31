@@ -1,0 +1,257 @@
+html{
+    margin: 0;
+   
+    background: linear-gradient(-45deg,#23a6d5, aqua,#23d5ab,  #23d5ab,aqua,#23a6d5);
+	background-size: 1000% 1000%;
+	animation: gradient 20s ease infinite;
+	height: 100vh;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 40px;
+    font-style: bold;
+}
+
+
+li.topbar{
+    list-style: none;
+    
+    float: left;
+    height: 100px;
+}
+li.logow{
+    list-style: none;
+    height: 150px;
+    width: 600px;
+}
+
+hr{
+    float:left;
+    width: 100%;
+    height: 10px;
+    margin: 0;
+    outline:none;
+    box-shadow: none;
+    border: none;
+    background: linear-gradient(90deg, #ff9900 , #ee7752);
+	    background-size: 400% 400%;
+	    animation: gradient 20s ease infinite;
+}
+
+
+input, button, .btn, .tekst{
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+        border-radius: 20px;
+        border: 0;
+        background: linear-gradient(90deg,  #ff9900, #ee7752);
+	    background-size: 400% 400%;
+	    animation: gradient 20s ease infinite;
+        padding: 20px; 
+        width: 200px;
+        height: 90px;    
+        color: white;
+        box-shadow: none;
+        outline:none;
+        box-sizing: border-box;
+        font-size: 30px;
+        vertical-align:top  ;
+        
+}
+.bbtn{
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+        border-radius: 20px;
+        border: 0;
+        background: linear-gradient(90deg,  #ff9900, #ee7752);
+	    background-size: 400% 400%;
+	    animation: gradient 20s ease infinite;
+        padding: 20px; 
+        width: 400px;
+        height: 200px;    
+        color: white;
+        box-shadow: none;
+        outline:none;
+        box-sizing: border-box;
+        font-size: 30px;
+        vertical-align:top  ;
+        
+}
+a{
+    display: block;
+text-decoration: none;
+color: white;
+text-align: center;
+}
+div>h1{
+ font-weight: bold;   
+
+}
+.partyk{
+ word-wrap: break-word;
+}
+.imgarty{
+    
+    width: 600px;
+    
+    height: 600px;
+}
+.artyk{
+    min-height: 700px;
+    width: 100%;
+    margin: auto;
+}
+
+.fcs:focus{
+    background: transparent;
+    outline: solid 2px white; 
+    text-shadow: 1px 1px 1px black; 
+}
+
+
+.animacja:hover{
+   background: transparent;
+   outline: solid 2px white;
+   text-shadow: 1px 1px 1px black;
+
+}
+.a{
+    width: 600px;
+    height: 90px;
+}
+
+
+#top_bar{
+    overflow: auto;
+   border-color: linear-gradient(90deg,  rgba(253, 236, 1, 0.568), #ee7752);
+   
+   margin-bottom: 10px;
+   width: 100%;
+    height: 200px;
+    flex-flow: nowrap;
+    
+}
+
+#zakladki{
+    float:left;
+    
+}
+#szukanie{
+    margin: 0,50px,0,0;
+    float: right;
+    height: 90px;
+}
+
+
+
+
+.lupa{
+    
+    content: icon;
+    background-color:transparent;
+    background-repeat: no-repeat;
+    align-content: center;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+    height: 90px;
+    font-size: xx-large;
+
+}
+#xd{
+    
+   position: absolute;
+}
+#logowanie, #form_log{
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    
+
+}
+::placeholder{
+    color: lightgray;
+}
+#empty_div{
+    height: 200px;
+}
+form#logowanie{
+    border-style: solid;
+    border-width: 2px;
+    border-color:linear-gradient(90deg,  rgba(253, 236, 1, 0.568), #ee7752) ;
+}
+div#div_log{
+    display: inline-block;
+    vertical-align: middle
+}
+#abcd{
+    width: 100%;
+    height: auto;
+    
+}
+.nagl{
+    width: 800px;
+}
+
+textarea{
+    width: 90%; 
+}
+ul.sr{
+    margin: auto;
+    width: 90%;
+}
+
+
+.div_gal{
+display: flex;
+padding: 5px;
+flex-direction: row;  
+flex-wrap: wrap;
+flex-flow: row;
+justify-content: space-evenly;
+  
+}
+
+.galerianka_li{
+    width: 305px;
+    height: 305px;
+flex-grow: 4;
+flex-basis: auto; 
+     
+}
+input.art{
+    border-radius: 0px;
+    background-color: white;
+    background-size: 100%;
+}
+tr{
+    height: 500px;
+}
+td{
+ width: 500px;
+}
+.miniaturka{
+    width: 200px;
+    height: 200px;
+}
+.dd{
+    display: none;
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+
+}
